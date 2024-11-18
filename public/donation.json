@@ -1,0 +1,66 @@
+[
+    {
+      "id": 1,
+      "title": "Warm Clothes for Dhaka's Slum Dwellers",
+      "image": "https://example.com/images/dhaka-campaign1.jpg",
+      "description": "Donate warm clothes to help slum dwellers in Dhaka during the winter season.",
+      "status": "Active",
+      "contactInfo": "dhaka.campaign1@example.com, +8801234567890",
+      "division": "Dhaka"
+    },
+    {
+      "id": 2,
+      "title": "Blanket Drive for Dhaka's Homeless",
+      "image": "https://example.com/images/dhaka-campaign2.jpg",
+      "description": "Join us in distributing blankets to homeless people in Dhaka to keep them warm.",
+      "status": "Active",
+      "contactInfo": "dhaka.campaign2@example.com, +8801234567891",
+      "division": "Dhaka"
+    },
+    {
+      "id": 3,
+      "title": "Winter Relief for Chattogram Villages",
+      "image": "https://example.com/images/chattogram-campaign1.jpg",
+      "description": "Support rural communities in Chattogram with essential winter clothing.",
+      "status": "Active",
+      "contactInfo": "chattogram.campaign1@example.com, +8801234567892",
+      "division": "Chattogram"
+    },
+    {
+      "id": 4,
+      "title": "Warm Clothes for Chattogram's Low-Income Families",
+      "image": "https://example.com/images/chattogram-campaign2.jpg",
+      "description": "Provide warmth to low-income families in Chattogram during the harsh winter.",
+      "status": "Completed",
+      "contactInfo": "chattogram.campaign2@example.com, +8801234567893",
+      "division": "Chattogram"
+    },
+    {
+      "id": 5,
+      "title": "Sweater Distribution for Sylhet's Tea Garden Workers",
+      "image": "https://example.com/images/sylhet-campaign1.jpg",
+      "description": "Help tea garden workers in Sylhet stay warm this winter by donating sweaters.",
+      "status": "Active",
+      "contactInfo": "sylhet.campaign1@example.com, +8801234567894",
+      "division": "Sylhet"
+    },
+    {
+      "id": 6,
+      "title": "Winter Clothes for Sylhet's Rural Areas",
+      "image": "https://example.com/images/sylhet-campaign2.jpg",
+      "description": "Join our efforts to distribute winter clothes to rural families in Sylhet.",
+      "status": "Active",
+      "contactInfo": "sylhet.campaign2@example.com, +8801234567895",
+      "division": "Sylhet"
+    },
+    {
+        "id": 7,
+        "title": "Keep Barisal Warm: A Winter Appeal",
+        "image": "https://example.com/images/barisal-campaign.jpg",
+        "description": "Barisal's vulnerable groups need your help to stay warm this winter. Every donation counts.",
+        "status": "Active",
+        "contactInfo": "barisal.donations@example.com, +8801234567894",
+        "division": "Barisal"
+      }
+  ]
+  
