@@ -1,0 +1,26 @@
+[
+    {
+        "id": 0,
+        "category": "All"
+    },
+    {
+        "id": 1,
+        "category": "Dhaka",
+        "slug": "dhaka"
+    },
+    {
+        "id": 2,
+        "category": "Chattogram",
+        "slug": "chattogram"
+    },
+    {
+        "id": 3,
+        "category": "Sylhet",
+        "slug": "sylhet"
+    },
+    {
+        "id": 4,
+        "category": "Barisal",
+        "slug": "barisal"
+    }
+]

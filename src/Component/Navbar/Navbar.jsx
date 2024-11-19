@@ -1,6 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import logo from '../../assets/logo.png';
+import user from '../../assets/user.png';
 import { FaBarsStaggered } from 'react-icons/fa6';
 
 
@@ -8,7 +9,7 @@ const Navbar = () => {
     const links = 
         <>
         <li><NavLink to='/' className={({isActive}) => isActive ? 'text-purple-700 font-bold' : ''}>Home</NavLink></li>
-        <li><NavLink to='/donation' className={({isActive}) => isActive ? 'text-purple-700 font-bold' : ''}>Donation</NavLink></li>
+        <li><NavLink to='/donation' className={({isActive}) => isActive ? 'text-purple-700 font-bold' : ''}>Donation Campaigns</NavLink></li>
         <li><NavLink to='/help'className={({isActive}) => isActive ? 'text-purple-700 font-bold' : ''}>How to help</NavLink></li>
         <li><NavLink to='/dashboard'className={({isActive}) => isActive ? 'text-purple-700 font-bold' : ''}>Dashboard</NavLink></li>
         <li><NavLink to='/faq'className={({isActive}) => isActive ? 'text-purple-700 font-bold' : ''}>FAQ</NavLink></li>
@@ -34,7 +35,10 @@ const Navbar = () => {
                 {links}
                 </ul>
             </div>
-            <div className="navbar-end">
+            <div className="navbar-end gap-2">
+                <div>
+                    <img src={user} alt="icon" />
+                </div>
                 <a className="btn">Login</a>
             </div>
             </div>

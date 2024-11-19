@@ -1,4 +1,8 @@
 import React, { useState, useEffect } from "react";
+import img from '../../assets/winter.jpg';
+import img2 from '../../assets/winter2.jpg';
+import img3 from '../../assets/winter3.jpg';
+import img4 from '../../assets/winter4.jpg';
 
 const Banner = () => {
   const [currentSlide, setCurrentSlide] = useState(1);
@@ -21,7 +25,7 @@ const Banner = () => {
         }`}
       >
         <img
-          src="https://img.daisyui.com/images/stock/photo-1625726411847-8cbb60cc71e6.webp"
+          src={img}
           className="w-full h-full object-cover"
           alt="Slide 1"
         />
@@ -45,7 +49,7 @@ const Banner = () => {
         }`}
       >
         <img
-          src="https://img.daisyui.com/images/stock/photo-1609621838510-5ad474b7d25d.webp"
+          src={img3}
           className="w-full h-full object-cover"
           alt="Slide 2"
         />
@@ -69,7 +73,7 @@ const Banner = () => {
         }`}
       >
         <img
-          src="https://img.daisyui.com/images/stock/photo-1414694762283-acccc27bca85.webp"
+          src={img2}
           className="w-full h-full object-cover"
           alt="Slide 3"
         />
@@ -93,7 +97,7 @@ const Banner = () => {
         }`}
       >
         <img
-          src="https://img.daisyui.com/images/stock/photo-1665553365602-b2fb8e5d1707.webp"
+          src={img4}
           className="w-full h-full object-cover"
           alt="Slide 4"
         />

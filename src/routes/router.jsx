@@ -18,7 +18,21 @@ const router = createBrowserRouter([
         {
             path: "/donation",
             element: <Donation />,
+            loader: () => fetch("/donation.json"),
         },
+        {
+            path: "/donation/category/:category",
+            element: <Donation />,
+            loader: () => fetch("/donation.json"),
+        },
+            // children:[
+            //     {
+            //         path: "category/:category",
+            //         element:<Donation />
+            //     }
+            // ]
+
+        
         {
             path: "/help",
             element: <Help />,
@@ -30,9 +44,14 @@ const router = createBrowserRouter([
         {
             path: "/faq",
             element: <Faq />,
-        }
+        },
+        
       ]
     },
+    {
+        path: "*",
+        element: <h1 className="font-bold text-center text-4xl">Error 404</h1>,
+    }
   ]);
 
   export default router;
