@@ -23,6 +23,7 @@ const DonationDetails = () => {
                     <p className="mb-5"><span className='font-bold px-2'>Status:</span>{status}</p>
                     <p className="mb-5 font-semibold">{contactInfo}</p>
                     <button className="btn btn-primary" onClick={()=>document.getElementById('my_modal_5').showModal()}>Donate</button>
+                    {/* <Link to={`/home/${details?.id}`} className="btn btn-primary">Back To Category</Link> */}
                     </div>
                 </div>
                 <Modal></Modal>

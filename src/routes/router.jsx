@@ -10,6 +10,7 @@ import AuthLayout from "../Component/AuthLayout/AuthLayout";
 import ErrorPage from "../Component/MainLayout/ErrorPage";
 import Login from "../Component/pages/Login";
 import Register from "../Component/pages/Register";
+import PrivateRoute from "./PrivateRoute";
 
 const router = createBrowserRouter([
     {
@@ -33,7 +34,9 @@ const router = createBrowserRouter([
         },
         {
             path: "/donationDetails/:id",
-            element: <DonationDetails />,
+            element: <PrivateRoute>
+                       <DonationDetails />
+                     </PrivateRoute>,
             loader: async ({params})=>{
                 const res = await fetch("/donation.json")
                 const data = await res.json()
