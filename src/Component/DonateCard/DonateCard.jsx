@@ -1,8 +1,9 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 
 const DonateCard = ({donate}) => {
     console.log(donate);
-    const{image, title, description, division} = donate
+    const{image, title, description, division, id} = donate
 
     return (
         <div className='flex justify-center p-4'>
@@ -18,7 +19,10 @@ const DonateCard = ({donate}) => {
                 <p className='text-sm md:text-base'>{description}</p>
                 <p className='text-sm md:text-base font-semibold'>{division}</p>
                 <div className="card-actions">
-                <button className="btn btn-info w-full md:w-auto">Donate Now</button>
+                <NavLink to={`/donationDetails/${id}`}>
+                <button className="btn btn-primary w-full md:w-auto">
+                    Donate Now</button>
+                </NavLink>
                 </div>
             </div>
             </div>

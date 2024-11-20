@@ -5,11 +5,17 @@ import Donation from "../Component/Donation/Donation";
 import Help from "../Component/Help/Help";
 import Dashboard from "../Dashboard/Dashboard";
 import Faq from "../Component/Faq/Faq";
+import DonationDetails from "../Component/DonationDetails/DonationDetails";
+import AuthLayout from "../Component/AuthLayout/AuthLayout";
+import ErrorPage from "../Component/MainLayout/ErrorPage";
+import Login from "../Component/pages/Login";
+import Register from "../Component/pages/Register";
 
 const router = createBrowserRouter([
     {
       path: "/",
       element: <MainLayout></MainLayout>,
+      errorElement: <ErrorPage />,
       children: [
         {
             path: "/",
@@ -25,14 +31,16 @@ const router = createBrowserRouter([
             element: <Donation />,
             loader: () => fetch("/donation.json"),
         },
-            // children:[
-            //     {
-            //         path: "category/:category",
-            //         element:<Donation />
-            //     }
-            // ]
-
-        
+        {
+            path: "/donationDetails/:id",
+            element: <DonationDetails />,
+            loader: async ({params})=>{
+                const res = await fetch("/donation.json")
+                const data = await res.json()
+                const singleData = data.find(d => d.id == params.id)
+                return singleData
+            }
+        },  
         {
             path: "/help",
             element: <Help />,
@@ -45,13 +53,27 @@ const router = createBrowserRouter([
             path: "/faq",
             element: <Faq />,
         },
-        
+        {
+            path: "auth",
+            element: <AuthLayout />,
+            children: [
+                {
+                    path: "/auth/login",
+                    element: <Login />,
+                },
+                {
+                    path: "/auth/register",
+                    element: <Register />,
+                }
+            ]
+        }, 
       ]
     },
     {
         path: "*",
-        element: <h1 className="font-bold text-center text-4xl">Error 404</h1>,
-    }
+        element: <ErrorPage />,
+    },
+    
   ]);
 
   export default router;

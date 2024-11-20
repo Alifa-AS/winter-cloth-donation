@@ -1,18 +1,22 @@
-import React from 'react';
-import { NavLink } from 'react-router-dom';
+import React, { useContext } from 'react';
+import { Link, NavLink } from 'react-router-dom';
 import logo from '../../assets/logo.png';
-import user from '../../assets/user.png';
+import userIcon from '../../assets/user.png';
 import { FaBarsStaggered } from 'react-icons/fa6';
+import { AuthContext } from '../AuthProvider/AuthProvider';
 
 
 const Navbar = () => {
+
+    const {user, logOut} = useContext(AuthContext);
+
     const links = 
         <>
-        <li><NavLink to='/' className={({isActive}) => isActive ? 'text-purple-700 font-bold' : ''}>Home</NavLink></li>
-        <li><NavLink to='/donation' className={({isActive}) => isActive ? 'text-purple-700 font-bold' : ''}>Donation Campaigns</NavLink></li>
-        <li><NavLink to='/help'className={({isActive}) => isActive ? 'text-purple-700 font-bold' : ''}>How to help</NavLink></li>
-        <li><NavLink to='/dashboard'className={({isActive}) => isActive ? 'text-purple-700 font-bold' : ''}>Dashboard</NavLink></li>
-        <li><NavLink to='/faq'className={({isActive}) => isActive ? 'text-purple-700 font-bold' : ''}>FAQ</NavLink></li>
+        <li><NavLink to='/' className={({isActive}) => isActive ? 'text-purple-700 font-bold' : 'font-semibold'}>Home</NavLink></li>
+        <li><NavLink to='/donation' className={({isActive}) => isActive ? 'text-purple-700 font-bold' : 'font-semibold'}>Donation Campaigns</NavLink></li>
+        <li><NavLink to='/help'className={({isActive}) => isActive ? 'text-purple-700 font-bold' : 'font-semibold'}>How to help</NavLink></li>
+        <li><NavLink to='/dashboard'className={({isActive}) => isActive ? 'text-purple-700 font-bold' : 'font-semibold'}>Dashboard</NavLink></li>
+        <li><NavLink to='/faq'className={({isActive}) => isActive ? 'text-purple-700 font-bold' : 'font-semibold'}>FAQ</NavLink></li>
     </>
 
     return (
@@ -36,10 +40,18 @@ const Navbar = () => {
                 </ul>
             </div>
             <div className="navbar-end gap-2">
+
+                <h2>{user && user.email}</h2>
                 <div>
-                    <img src={user} alt="icon" />
+                    <img src={userIcon} alt="icon" />
                 </div>
-                <a className="btn">Login</a>
+                {
+                    user && user?.email ? (
+                        <button onClick={logOut} className='btn'>Logout</button>
+                    ) : 
+                    <Link to="/auth/login" className="btn">Login</Link>
+                }
+                
             </div>
             </div>
     );
