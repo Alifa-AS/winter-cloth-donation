@@ -1,21 +1,47 @@
 import React from 'react';
-
+import img from '../../assets/b.jpg'
 
 const HowWorks = () => {
     return (
-        <div>
-            <div className="hero bg-base-200 py-20">
+        <div className='my-20'>
+           <div className="hero bg-base-200 py-20">
+            <div className="hero-content flex-col lg:flex-row-reverse">
+                <img
+                src={img}
+                className="max-w-sm rounded-lg shadow-2xl" />
+                <div>
+                <h1 className="text-4xl font-bold">How It Works</h1>
+                <p className="py-6">
+                   <li className='font-bold'>Instructions for Donation</li>
+                   <ul><span className='font-semibold'>What to Donate:</span>
+                    Winter clothing: coats, scarves, gloves, hats (new or gently used).
+                    Warm blankets and sleeping bags.
+                    Monetary donations to fund the purchase and delivery of winter essentials.
+                    <br />
+                    How to Donate:
 
-                <div className="hero-content text-center">
-                    <div className="max-w-md">
-                    <h1 className="text-5xl font-bold">Our Mission</h1>
-                    <p className="py-6">
-                    Our mission is to bring warmth, care, and compassion to those in need during the winter season. By mobilizing resources and fostering community support, we strive to provide essentials like clothing, blankets, and nourishing meals to ensure no one is left out in the cold. Together, we aim to create a world where everyone can face winter with hope and dignity.
-                    </p>
-                    
-                    </div>
+                    Visit our website to make an online donation.
+                    Package your clothing and blankets securely for drop-off.</ul>
+                    <li className='font-bold'> Collection Points</li>
+                    <ul>Local Library - Division B
+                    Address: 456 Library Lane, Division B
+                    Timings: 10 AM - 6 PM, Monday to Friday 
+                    <br />
+                    <ul>Town Hall - Division C
+                    Address: 789 City Square, Division C
+                    Timings: 8 AM - 4 PM, Monday to Sunday</ul>
+                    </ul>
+                    <li className='font-bold'>Supported Divisions</li>
+                    <ul>
+                    Division A: Urban centers and shelters. <br />
+                    Division B: Suburban communities and local <organizations className="br"></organizations>
+                    Division C: Rural areas with limited resources. <br />
+                    </ul>
+                </p>
+                 
                 </div>
-                </div>
+            </div>
+            </div>
         </div>
     );
 };
