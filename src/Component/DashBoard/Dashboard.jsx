@@ -7,6 +7,7 @@ const Dashboard = () => {
     return (
         <div className='flex items-center justify-center py-36'>
             <div className="card bg-base-100 w-96 shadow-xl">
+                <h1 className='text-center font-bold text-3xl py-5'>Hi, welcome!</h1>
             <figure className="px-10 pt-10">
                 <img 
                 src= {user?.photoURL}

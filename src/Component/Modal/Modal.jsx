@@ -1,13 +1,6 @@
 import React, { useState } from 'react';
 import toast, { Toaster } from 'react-hot-toast';
-/**
- Quantity of items (e.g., 2 jackets, 3 blankets) 
-•	Item type (e.g., blanket, jacket, sweater).
-•	Pickup location(e.g. House 12, Road 5, Dhanmondi, Dhaka)
-•	Additional notes (optional).
-•	Upon submission, Display a Toast message “ Thank you ! We will reach your destination soon”. 
 
- */
 const Modal = () => {
 
     const[formData, setFormData] = useState({
