@@ -13,6 +13,7 @@ import Register from "../Component/pages/Register";
 import PrivateRoute from "./PrivateRoute";
 import UpdateProfile from "../Component/DashBoard/UpdateProfile";
 import Dashboard from "../Component/DashBoard/Dashboard";
+import ForgetPassword from "../Component/pages/ForgetPassword";
 
 const router = createBrowserRouter([
     {
@@ -62,20 +63,24 @@ const router = createBrowserRouter([
             path: "/faq",
             element: <Faq />,
         },
-        {
-            path: "auth",
-            element: <AuthLayout />,
-            children: [
+        // {
+        //     path: "auth",
+        //     element: <AuthLayout />,
+        // },
                 {
-                    path: "/auth/login",
+                    path: "/login",
                     element: <Login />,
                 },
                 {
-                    path: "/auth/register",
+                    path :"/forgetpassword",
+                    element: <ForgetPassword />,
+                },
+                {
+                    path: "/register",
                     element: <Register />,
                 }
-            ]
-        }, 
+            
+        
       ]
     },
     {

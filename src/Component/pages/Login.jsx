@@ -1,5 +1,5 @@
-import React, { useContext, useState } from 'react';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import React, { useContext, useRef, useState } from 'react';
+import { Link, Navigate, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../AuthProvider/AuthProvider';
 import toast, { Toaster } from 'react-hot-toast';
 
@@ -7,7 +7,8 @@ import toast, { Toaster } from 'react-hot-toast';
 const Login = () => {
     const {userLogin, setUser} = useContext(AuthContext)
     const [error, setError] = useState({});
-
+    
+    const emailRef = useRef();
     const location = useLocation();
     const navigate = useNavigate();
     // console.log(location)
@@ -17,7 +18,7 @@ const Login = () => {
         const form = e.target;
         const email = form.email.value;
         const password = form.password.value;
-        
+
 
         userLogin(email,password)
         .then(result => {
@@ -32,6 +33,13 @@ const Login = () => {
                 toast.error('Login failed! Please check your credentials.');
         })
     }
+
+    const handleForgetPassword = () =>{
+        const email = emailRef.current.value;
+        navigate('/forgetpassword')
+    
+    }
+
     return (
         <div className='min-h-screen flex justify-center items-center bg-indigo-50'>
             <div className="card bg-base-100 w-full max-w-lg p-10 shrink-0 shadow-2xl">
@@ -41,7 +49,9 @@ const Login = () => {
                     <label className="label">
                         <span className="label-text">Email</span>
                     </label>
-                    <input type="email" placeholder="email" className="input input-bordered" name="email" required />
+                    <input type="email" placeholder="email" 
+                    className="input input-bordered" 
+                    name="email" ref={emailRef} required />
                     </div>
                     <div className="form-control">
                     <label className="label">
@@ -55,9 +65,10 @@ const Login = () => {
                             </label>
                         )
                     }
-                    <label className="label">
-                        <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
-                    </label>
+                    <button onClick={handleForgetPassword}
+                    className="label">
+                        Forget Password?
+                    </button>
                     </div>
                     <div className="form-control mt-6">
                     <button className="btn btn-primary">Login</button>
