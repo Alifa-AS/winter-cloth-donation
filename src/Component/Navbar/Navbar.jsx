@@ -41,9 +41,16 @@ const Navbar = () => {
             </div>
             <div className="navbar-end gap-2">
 
-                <h2>{user && user.email}</h2>
+                {/* <h2>{user && user.email}</h2> */}
                 <div>
-                    <img src={userIcon} alt="icon" />
+                {user && user?.email ? (
+                        <div>
+                        <img className="w-10 h-10 rounded-full" src={user?.photoURL} alt="" />
+                        <p>{user.displayName}</p>
+                        </div>
+                    ) : (
+                        <img src={userIcon} alt="" />
+                    )}
                 </div>
                 {
                     user && user?.email ? (

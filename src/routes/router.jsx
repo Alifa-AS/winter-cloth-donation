@@ -3,7 +3,7 @@ import MainLayout from "../Component/MainLayout/MainLayout";
 import Home from "../Component/Home/Home";
 import Donation from "../Component/Donation/Donation";
 import Help from "../Component/Help/Help";
-import Dashboard from "../Dashboard/Dashboard";
+
 import Faq from "../Component/Faq/Faq";
 import DonationDetails from "../Component/DonationDetails/DonationDetails";
 import AuthLayout from "../Component/AuthLayout/AuthLayout";
@@ -11,6 +11,8 @@ import ErrorPage from "../Component/MainLayout/ErrorPage";
 import Login from "../Component/pages/Login";
 import Register from "../Component/pages/Register";
 import PrivateRoute from "./PrivateRoute";
+import UpdateProfile from "../Component/DashBoard/UpdateProfile";
+import Dashboard from "../Component/DashBoard/Dashboard";
 
 const router = createBrowserRouter([
     {
@@ -50,7 +52,15 @@ const router = createBrowserRouter([
         },
         {
             path: "/dashboard",
-            element: <Dashboard />,
+            element: <PrivateRoute><Dashboard /></PrivateRoute>,
+        },
+        // {
+        //     path: "/profile",
+        //     element:<PrivateRoute><Profile /></PrivateRoute>
+        // },
+        {
+            path: "/update-profile",
+            element:<PrivateRoute><UpdateProfile /></PrivateRoute>
         },
         {
             path: "/faq",

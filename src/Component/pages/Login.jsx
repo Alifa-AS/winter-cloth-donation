@@ -1,13 +1,19 @@
-import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useContext, useState } from 'react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../AuthProvider/AuthProvider';
+import toast, { Toaster } from 'react-hot-toast';
+
 
 const Login = () => {
     const {userLogin, setUser} = useContext(AuthContext)
+    const [error, setError] = useState({});
+
+    const location = useLocation();
+    const navigate = useNavigate();
+    console.log(location)
 
     const handleSubmit = (e) => {
         e.preventDefault();
-
         const form = e.target;
         const email = form.email.value;
         const password = form.password.value;
@@ -17,9 +23,13 @@ const Login = () => {
         .then(result => {
             const user = result.user;
             setUser(user);
+            // navigate(location?.state ? location.state : '/')
+            navigate('/', {replace: true})
+            toast('Login Successful!')
             })
-            .catch((error)=>{
-                alert(error.code)
+            .catch((err)=>{
+                setError({...error, login: err.code})
+                toast.error('Login failed! Please check your credentials.');
         })
     }
     return (
@@ -38,6 +48,13 @@ const Login = () => {
                         <span className="label-text">Password</span>
                     </label>
                     <input type="password" placeholder="password" className="input input-bordered" name="password" required />
+                    {
+                        error.login && (
+                            <label className='label text-sm text-red-600'>
+                              {error.login}
+                            </label>
+                        )
+                    }
                     <label className="label">
                         <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
                     </label>
@@ -50,7 +67,9 @@ const Login = () => {
                     Don't Have Any Account? <Link to="/auth/register" className='text-red-600 underline'>Register Now</Link>
                 </p>
             </div>
+            <Toaster />
         </div>
+
     );
 };
 
