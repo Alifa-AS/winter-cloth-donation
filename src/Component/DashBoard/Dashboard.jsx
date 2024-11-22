@@ -15,7 +15,7 @@ const Dashboard = () => {
                 className="rounded-full" />
             </figure>
             <div className="card-body items-center text-center">
-                <h2 className="card-title">Name:{user?.name}</h2>
+                <h2 className="card-title">Name:<span className='font-normal'>{user?.displayName}</span></h2>
                 <p className='pb-5'>
                     <span className='font-bold px-2'>Email:</span>
                     {user?.email}</p>

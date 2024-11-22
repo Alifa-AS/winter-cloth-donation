@@ -5,10 +5,10 @@ const HowWorks = () => {
     return (
         <div className='my-20'>
            <div className="hero bg-base-200 py-20">
-            <div className="hero-content flex-col lg:flex-row-reverse">
+            <div className="hero-content flex-col lg:flex-row-reverse" data-aos="zoom-in-up">
                 <img
                 src={img}
-                className="max-w-sm rounded-lg shadow-2xl" />
+                className="max-w-full sm:max-w-xs md:max-w-sm lg:max-w-sm rounded-lg shadow-2xl object-cover" />
                 <div>
                 <h1 className="text-4xl font-bold">How It Works</h1>
                 <p className="py-6">

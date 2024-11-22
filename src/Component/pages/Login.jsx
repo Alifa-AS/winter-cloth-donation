@@ -2,10 +2,12 @@ import React, { useContext, useRef, useState } from 'react';
 import { Link, Navigate, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../AuthProvider/AuthProvider';
 import toast, { Toaster } from 'react-hot-toast';
+import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
+import auth from '../../firebase/firebase.config';
 
 
 const Login = () => {
-    const {userLogin, setUser} = useContext(AuthContext)
+    const {userLogin, setUser, googleProvider} = useContext(AuthContext)
     const [error, setError] = useState({});
     
     const emailRef = useRef();
@@ -38,6 +40,20 @@ const Login = () => {
         const email = emailRef.current.value;
         navigate('/forgetpassword')
     
+    }
+    const provider = new GoogleAuthProvider();
+    
+    const handleGoogleSignIn = () =>{
+        signInWithPopup(auth, provider)
+        .then((result)=>{
+            // console.log(result)
+            toast.success("Google sign in successful!")
+            navigate('/')
+        })
+        .catch(error => {
+            // console.log(error)
+            toast.error("Failed to sign in with google!")
+        })
     }
 
     return (
@@ -74,9 +90,15 @@ const Login = () => {
                     <button className="btn btn-primary">Login</button>
                     </div>
                 </form>
+                <div className='pb-5 pl-5'>
+                  <button onClick={handleGoogleSignIn}
+                  className='btn'>Login with Google</button>
+                </div>
+                <div>
                 <p className='text-center font-semibold'>
-                    Don't Have Any Account? <Link to="/auth/register" className='text-red-600 underline'>Register Now</Link>
+                    Don't Have Any Account? <Link to="/register" className='text-red-600 underline'>Register Now</Link>
                 </p>
+                </div>
             </div>
             <Toaster />
         </div>

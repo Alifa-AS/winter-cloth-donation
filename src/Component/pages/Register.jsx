@@ -4,6 +4,8 @@ import { AuthContext } from '../AuthProvider/AuthProvider';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
+import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
+import auth from '../../firebase/firebase.config';
 
 
 const Register = () => {
@@ -67,6 +69,21 @@ const Register = () => {
             }));
           });
     }
+     
+     const googleProvider = new GoogleAuthProvider();
+
+     const handleGoogleSignIn = () =>{
+        signInWithPopup(auth, googleProvider)
+        .then((result)=>{
+            // console.log(result)
+            toast.success("Google sign in successful!")
+            navigate('/')
+        })
+        .catch(error => {
+            // console.log('Error' ,error)
+            toast.error("Failed to sign in with google!")
+        })
+     }
 
     return (
         <div className='min-h-screen flex justify-center items-center bg-indigo-50'>
@@ -125,10 +142,16 @@ const Register = () => {
                 <button className="btn btn-primary">Register</button>
                 </div>
             </form>
-            <p className='text-center font-semibold'>
-                Already Have An Account? <Link to="/auth/login" className='text-green-500 underline'>Login Now</Link>
-            </p>
-            <ToastContainer position='top-center autoClose={3000}' />
+                    <div className='pb-5 pl-5'>
+                    <button onClick={handleGoogleSignIn}
+                    className='btn'>Login with Google</button>
+                    </div>
+                    <div>
+                    <p className='text-center font-semibold'>
+                            Already Have An Account? <Link to="/login" className='text-green-500 underline'>Login Now</Link>
+                        </p>
+                    </div>
+            <ToastContainer position='top-center' autoClose={3000} />
         </div>
     </div>
     );

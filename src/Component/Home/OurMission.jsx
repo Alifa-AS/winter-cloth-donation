@@ -3,7 +3,7 @@ import React from 'react';
 const OurMission = () => {
     return (
         <div className='pb-20'>
-             <div className="hero bg-base-200 py-20">
+             <div className="hero bg-base-200 py-20" data-aos="fade-up">
                 <div className="hero-content text-center">
                     <div className="max-w-md">
                     <h1 className="text-5xl font-bold">Our Mission</h1>
