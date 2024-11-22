@@ -25,8 +25,8 @@ const Footer = () => {
             <nav>
                 <h6 className="footer-title">Social</h6>
             <div className="grid grid-flow-col gap-4">
-                <a><FaFacebook className='text-blue-600 text-2xl' /></a>
-                <a><FaYoutube className='text-red-600 text-2xl'/></a>
+                <a href='https://www.facebook.com/login/'><FaFacebook className='text-blue-600 text-2xl' /></a>
+                <a href='https://www.youtube.com/'><FaYoutube className='text-red-600 text-2xl'/></a>
                 <a><FaInstagram className='text-purple-500 text-2xl'></FaInstagram></a>
                 <a><FaXTwitter className='text-2xl' /></a>
             </div>
