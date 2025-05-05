@@ -21,7 +21,7 @@ const Donation = () => {
                 <aside className='pb-10 text-center'>
                     <CategoryBtn></CategoryBtn>
                 </aside>
-                 <section className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 '>
+                 <section className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4'>
                     {
                         filterDonations.length > 0 ? (
                         filterDonations.map((donate,idx)=> (

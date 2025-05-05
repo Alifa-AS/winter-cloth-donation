@@ -14,7 +14,7 @@ const HowWorks = () => {
                 <p className="py-6">
                    <li className='font-bold'>Instructions for Donation</li>
                    <ul><span className='font-semibold'>What to Donate:</span>
-                    Winter clothing: coats, scarves, gloves, hats (new or gently used).
+                    Money,cloths,
                     Warm blankets and sleeping bags.
                     Monetary donations to fund the purchase and delivery of winter essentials.
                     <br />

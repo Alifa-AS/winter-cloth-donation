@@ -1,5 +1,5 @@
 import React, { useContext, useRef, useState } from 'react';
-import { Link, Navigate, useLocation, useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../AuthProvider/AuthProvider';
 import toast, { Toaster } from 'react-hot-toast';
 import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
@@ -7,13 +7,11 @@ import auth from '../../firebase/firebase.config';
 
 
 const Login = () => {
-    const {userLogin, setUser, googleProvider} = useContext(AuthContext)
+    const {userLogin, setUser} = useContext(AuthContext)
     const [error, setError] = useState({});
     
     const emailRef = useRef();
-    const location = useLocation();
     const navigate = useNavigate();
-    // console.log(location)
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -28,24 +26,25 @@ const Login = () => {
             setUser(user);
             // navigate(location?.state ? location.state : '/')
             navigate('/', {replace: true})
-            toast('Login Successful!')
+            toast.success('Login Successful!')
             })
             .catch((err)=>{
-                setError({...error, login: err.code})
+                // setError({...error, login: err.code})
                 toast.error('Login failed! Please check your credentials.');
         })
     }
 
     const handleForgetPassword = () =>{
-        const email = emailRef.current.value;
+        // const email = emailRef.current.value;
         navigate('/forgetpassword')
     
     }
-    const provider = new GoogleAuthProvider();
+    const googleProvider = new GoogleAuthProvider();
     
     const handleGoogleSignIn = () =>{
-        signInWithPopup(auth, provider)
+        signInWithPopup(auth, googleProvider)
         .then((result)=>{
+            setUser(result.user);
             // console.log(result)
             toast.success("Google sign in successful!")
             navigate('/')
